@@ -16,38 +16,21 @@
 
 ### Usage
 
-#### Step 1 ：Download soapui source
+#### Step 1 ：Copy SoapUI Jar Files
 
-> git clone https://github.com/SmartBear/soapui.git
+> Copy soapui-5.4.0.jar、soapui-5.4.0-sources.jar、analytics-core-5.4.0.jar、out-app-analytics-provider-5.4.0.jar to D:\
 
-#### Step 2 ：Modify soapui\soapui\pom.xml and replace XML Beans
+#### Step 2 ：Deploy soapui-5.4.0.jar、soapui-5.4.0-sources.jar、analytics-core-5.4.0.jar、out-app-analytics-provider-5.4.0.jar to Maven Repository
 
-```xml
-<!-- https://mvnrepository.com/artifact/org.apache.xmlbeans/xmlbeans -->
-<dependency>
-	<groupId>org.apache.xmlbeans</groupId>
-	<artifactId>xmlbeans</artifactId>
-	<version>2.6.0</version>
-</dependency>
-<dependency>
-	<groupId>org.apache.xmlbeans</groupId>
-	<artifactId>xmlbeans-xpath</artifactId>
-	<version>2.6.0</version>
-</dependency>
-<dependency>
-	<groupId>org.apache.xmlbeans</groupId>
-	<artifactId>xmlbeans-xmlpublic</artifactId>
-	<version>2.6.0</version>
-</dependency>
+```bash
+mvn deploy:deploy-file -DgroupId=com.eviware -DartifactId=soapui -Dversion=5.4.0 -Dpackaging=jar -Dfile=D:\soapui-5.4.0.jar -Durl=${repositoryUrl} -DrepositoryId=${repositoryId}
+mvn deploy:deploy-file -DgroupId=com.eviware -DartifactId=soapui -Dversion=5.4.0 -Dpackaging=jar -Dfile=D:\soapui-5.4.0-sources.jar -Dclassifier=sources -Durl=${repositoryUrl} -DrepositoryId=${repositoryId}
+mvn deploy:deploy-file -DgroupId=com.smartbear.utils.analytics -DartifactId=smartbear-analytics -Dversion=5.4.0 -Dpackaging=pom -Dfile=D:\smartbear-analytics-5.4.0.pom -Durl=${repositoryUrl} -DrepositoryId=${repositoryId}
+mvn deploy:deploy-file -DgroupId=com.smartbear.utils.analytics -DartifactId=analytics-core -Dversion=5.4.0 -Dpackaging=jar -Dfile=D:\analytics-core-5.4.0.jar -Durl=${repositoryUrl} -DrepositoryId=${repositoryId}
+mvn deploy:deploy-file -DgroupId=com.smartbear.utils.analytics -DartifactId=out-app-analytics-provider -Dversion=5.4.0 -Dpackaging=jar -Dfile=D:\out-app-analytics-provider-5.4.0.jar -Durl=${repositoryUrl} -DrepositoryId=${repositoryId}
 ```
 
-#### Step 3 ：Install To Maven Repository
-
-> mvn clean install
-
-#### Step 4 ：Deploy To Nexus Maven Repository
-
-> mvn deploy:deploy-file -DgroupId=com.eviware -DartifactId=soapui -Dversion=5.4.0 -Dpackaging=jar -Dfile=D:\soapui-5.4.0.jar -Durl=${repositoryUrl} -DrepositoryId=${repositoryId}
+### Some Useful Classes
 
 ```java
 com.eviware.soapui.impl.WsdlInterfaceFactory
