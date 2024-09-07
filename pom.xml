@@ -372,6 +372,7 @@
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+		<commons-ssl.version>0.3.9</commons-ssl.version>
 		<contiperf.version>2.3.4</contiperf.version>
 		<soapui.version>5.4.0</soapui.version>
 		<soapui-template.version>1.0.2.RELEASE</soapui-template.version>
@@ -394,7 +395,12 @@
 				<version>${contiperf.version}</version>
 				<scope>test</scope>
 			</dependency>
-
+			<!-- NOT Yet Commons SSL -->
+			<dependency>
+				<groupId>org.apache.commons</groupId>
+				<artifactId>not-yet-commons-ssl</artifactId>
+				<version>${commons-ssl.version}</version>
+			</dependency>
 			<!-- https://mvnrepository.com/artifact/com.eviware/soapui -->
 			<!-- https://github.com/SmartBear/soapui -->
 			<dependency>
@@ -466,6 +472,12 @@
 		<dependency>
 		   <groupId>com.github.hiwepy</groupId>
 			<artifactId>soapui-template</artifactId>
+		</dependency>
+		<!-- NOT Yet Commons SSL -->
+		<dependency>
+			<groupId>org.apache.commons</groupId>
+			<artifactId>not-yet-commons-ssl</artifactId>
+			<version>${commons-ssl.version}</version>
 		</dependency>
 
 	</dependencies>
