@@ -3,8 +3,8 @@ package com.smartbear.soapui.spring.boot;
 import java.util.Iterator;
 import java.util.Properties;
 
-import javax.annotation.PostConstruct;
 
+import jakarta.annotation.PostConstruct;
 import org.springframework.boot.autoconfigure.AutoConfigureAfter;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnClass;
 import org.springframework.boot.autoconfigure.web.servlet.WebMvcAutoConfiguration;
